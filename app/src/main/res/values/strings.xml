@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Card Match Game</string>
+    <string name="name_input">Enter your name</string>
+    <string name="name_alert">Enter your name</string>
+    <string name="start_game">Start Game</string>
+    <string name="game_title">Good luck, %1$s</string>
+    <string name="reset_game">Reset cards</string>
+    <string name="game_win">Congratulations, %1$s!</string>
+    <string name="new_game">New game</string>
+    <string name="sign_out">Sign out</string>
+</resources>

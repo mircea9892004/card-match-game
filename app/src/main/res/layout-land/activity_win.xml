@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/cardview_dark_background">
+
+    <TextView
+        android:id="@+id/winText"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/pacifico_regular"
+        android:text="@string/game_win"
+        android:textAlignment="center"
+        android:textColor="#FFA500"
+        android:textSize="40sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/newGameButton"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#AAAAAA"
+        android:text="@string/new_game"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/sign_out" />
+</LinearLayout>
