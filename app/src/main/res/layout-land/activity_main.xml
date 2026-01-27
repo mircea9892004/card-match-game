@@ -22,7 +22,7 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="4dp"
         android:padding="12dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -35,7 +35,7 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:padding="12dp"
         android:hint="Password"
         android:inputType="textPassword"
@@ -48,14 +48,14 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:text="Log in"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginBottom="2dp" />
 
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:text="Sign Up"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="2dp" />
 
     <Button
         android:id="@+id/forgotPasswordButton"

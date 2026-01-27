@@ -1,10 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-
-    // 🔹 Firebase plugin
-    id("com.google.gms.google-services")
-
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services") // <-- correct here
 }
 
 android {
@@ -35,6 +32,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -46,10 +44,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation("com.google.firebase:firebase-auth-ktx:23.2.1")
 
-    // 🔹 Firebase BoM + Auth
-    implementation(platform("com.google.firebase:firebase-bom:34.7.0"))
+    // Firebase BoM + Auth
+    implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
 
     testImplementation(libs.junit)

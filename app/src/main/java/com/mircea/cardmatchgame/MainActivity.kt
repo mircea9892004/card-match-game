@@ -24,15 +24,11 @@ class MainActivity : AppCompatActivity() {
         val signUpButton = findViewById<Button>(R.id.signUpButton)
         val forgotPasswordButton = findViewById<Button>(R.id.forgotPasswordButton)
 
-        // --- LOGIN ---
+        // User Log-in
         loginButton.setOnClickListener {
             val email = usernameInput.text.toString().trim()
             val password = passwordInput.text.toString().trim()
 
-            if (email.isEmpty() && password.isEmpty()) {
-                Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
             if (email.isEmpty()) {
                 Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -59,13 +55,13 @@ class MainActivity : AppCompatActivity() {
                 }
         }
 
-        // --- SIGN UP ---
+        // User Sign-up
         signUpButton.setOnClickListener {
             val email = usernameInput.text.toString().trim()
             val password = passwordInput.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please provide email and password to sign up", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please provide email and password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -73,11 +69,6 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show()
-                        // Optionally, log in automatically:
-                        val intent = Intent(this, GameActivity::class.java)
-                        intent.putExtra("PLAYER_NAME", email)
-                        startActivity(intent)
-                        finish()
                     } else {
                         Toast.makeText(
                             this,
@@ -88,24 +79,26 @@ class MainActivity : AppCompatActivity() {
                 }
         }
 
-        // --- FORGOT PASSWORD ---
+        // Forgot Password
         forgotPasswordButton.setOnClickListener {
             val email = usernameInput.text.toString().trim()
+
             if (email.isEmpty()) {
                 Toast.makeText(this, "Please enter your email to reset password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             auth.sendPasswordResetEmail(email)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "Password reset email sent!", Toast.LENGTH_SHORT).show()
-                    } else {
+                .addOnCompleteListener { resetTask ->
+                    if (resetTask.isSuccessful) {
                         Toast.makeText(
                             this,
-                            "Failed to send reset email: ${task.exception?.message}",
-                            Toast.LENGTH_SHORT
+                            "Password reset email sent! Check your inbox.",
+                            Toast.LENGTH_LONG
                         ).show()
+                    } else {
+                        val message = resetTask.exception?.message ?: "Failed to send reset email"
+                        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                     }
                 }
         }
