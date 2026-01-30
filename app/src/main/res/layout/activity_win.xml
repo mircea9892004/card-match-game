@@ -19,6 +19,17 @@
         android:textSize="40sp"
         android:textStyle="bold|italic" />
 
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/pacifico_regular"
+        android:text="@string/game_score"
+        android:textAlignment="center"
+        android:textColor="#CCCCCC"
+        android:textSize="24sp" />
+
     <Button
         android:id="@+id/newGameButton"
         android:layout_width="320dp"

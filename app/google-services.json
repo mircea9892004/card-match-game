@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "127626732322",
+    "project_id": "cardmatchgame-c046c",
+    "storage_bucket": "cardmatchgame-c046c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127626732322:android:fa802f16651f9be177fb7b",
+        "android_client_info": {
+          "package_name": "com.mircea.cardmatchgame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD580JlwG9K0HZrDh_j-cKCJPuM-9nLEhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

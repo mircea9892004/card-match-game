@@ -19,6 +19,9 @@ class GameActivity : AppCompatActivity() {
     private var firstFlippedButton: Button? = null
     private var secondFlippedButton: Button? = null
     private var pendingReset: Runnable? = null
+    private var gameWon = false
+
+    private var movesCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,10 +75,12 @@ class GameActivity : AppCompatActivity() {
                     firstButton.visibility = Button.INVISIBLE
                     secondButton.visibility = Button.INVISIBLE
 
-                    // Check for win AFTER the cards disappear
-                    if (cardList.all { it.isMatched }) {
+                    if (!gameWon && cardList.all { it.isMatched }) {
+                        gameWon = true
+
                         val intent = Intent(this, WinActivity::class.java)
                         intent.putExtra("PLAYER_NAME", playerName)
+                        intent.putExtra("SCORE", movesCount)
                         startActivity(intent)
                         finish()
                     }
@@ -97,8 +102,10 @@ class GameActivity : AppCompatActivity() {
 
         fun setupGrid() {
             gridLayout.removeAllViews()
-
             cardList.shuffle()
+
+            movesCount = 0;
+            gameWon = false;
 
             firstFlippedCard = null
             secondFlippedCard = null
@@ -127,7 +134,7 @@ class GameActivity : AppCompatActivity() {
 
                         pendingReset?.let {
                             secondFlippedButton?.removeCallbacks(it)
-                            resetOpenCards()  // immediately flip the previous cards back
+                            resetOpenCards()
                             pendingReset = null
                         }
 
@@ -140,6 +147,7 @@ class GameActivity : AppCompatActivity() {
                         } else {
                             secondFlippedCard = card
                             secondFlippedButton = this
+                            movesCount++
                             compareCards()
                         }
                     }

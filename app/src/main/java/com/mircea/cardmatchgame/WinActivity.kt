@@ -18,9 +18,13 @@ class WinActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         val playerName = intent.getStringExtra("PLAYER_NAME") ?: "Player"
+        val score = intent.getIntExtra("SCORE", 0)
 
         val winText = findViewById<TextView>(R.id.winText)
+        val scoreText = findViewById<TextView>(R.id.scoreText)
+
         winText.text = getString(R.string.game_win, playerName)
+        scoreText.text = getString(R.string.game_score, score)
 
         val newGameBtn = findViewById<Button>(R.id.newGameButton)
         newGameBtn.setOnClickListener {

@@ -16,5 +16,3 @@ local.properties
 *.log
 
 Thumbs.db
-
-**/google-services.json

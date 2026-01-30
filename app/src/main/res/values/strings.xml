@@ -6,6 +6,7 @@
     <string name="game_title">Good luck, %1$s</string>
     <string name="reset_game">Reset cards</string>
     <string name="game_win">Congratulations, %1$s!</string>
+    <string name="game_score">You\'ve finished the game in %d moves!</string>
     <string name="new_game">New game</string>
     <string name="sign_out">Sign out</string>
 </resources>
